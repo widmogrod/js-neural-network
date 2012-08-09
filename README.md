@@ -15,7 +15,7 @@ P.S. Sorry for my english. If You wish to help me with this project or correct m
    
 # Demo
 
-## Learning od xor function
+## Learning the xor function
 
 Run in your console in this project main direcotry
 
