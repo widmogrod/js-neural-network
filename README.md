@@ -1,9 +1,9 @@
 # Introduction
 
-JavaSript feed forward neural network with back propagarion algorith.
+JavaSript implementation of feedforward neural network with backpropagarion algorithm.
 
 ## Note
-
+    
 This project is still in development phase. Further development should bring extended  description, add more use cases and involve code refactoring and optimalisation.
 
 P.S. Sorry for my english. If You wish to help me with this project or correct my english description - You are welcome :)
