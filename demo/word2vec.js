@@ -103,9 +103,11 @@ var word2vec = wordsInputTuple.map(([word, inputWordVector]) => {
     return [word, net.update(inputWordVector)[0]];
 });
 
+console.log('Raw data:', rawData);
+
 console.log('\nLabels:\n')
-wordsList.forEach((w) => {
-    console.log(w);
+word2vec.forEach(([label]) => {
+    console.log(label);
 });
 
 console.log('\nword2vec as CSV:\n')
