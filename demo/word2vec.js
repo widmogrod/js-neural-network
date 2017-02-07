@@ -45,8 +45,8 @@ function indexTuple(listOfTuple) {
 }
 
 var rawData = 'king|kindom,queen|kindom,king|palace,queen|palace,king|royal,queen|royal,king|George,queen|Mary,man|rice,woman|rice,man|farmer,woman|farmer,man|house,woman|house,man|George,woman|Mary';
-    rawData = rawData.split(',');
-    rawData = rawData.map((x) => x.split('|'));
+rawData = rawData.split(',');
+rawData = rawData.map((x) => x.split('|'));
 
 var wordsList = unique(flatMap(id, rawData));
 var wordsInput = wordsList.map((word, index) => {
@@ -78,11 +78,6 @@ var learnData_ = rawData.map(([inWord, outWord]) => {
     return wordsInputIndexed[inWord].concat(wordsInputIndexed[outWord]);
 });
 
-// xor
-var testData_ = rawData.map(([inWord]) => {
-    return wordsInputIndexed[inWord];
-});
-
 var threshold_ = 0.008,
     epoch_ = 10000;
 
@@ -103,29 +98,22 @@ for (var e = 0; e < epoch_; e++)
 
 console.log('test net.', 'epoch', e, 'error', error);
 
-for (var x = 0; x < testData_.length; x++)
-{
-    console.log(
-        testData_[x],
-        net.update(testData_[x])[0]
-    );
-}
 
 var word2vec = wordsInputTuple.map(([word, inputWordVector]) => {
     return [word, net.update(inputWordVector)[0]];
 });
 
-console.log('Labels:\n')
+console.log('\nLabels:\n')
 wordsList.forEach((w) => {
     console.log(w);
 });
 
-console.log('word2vec as CSV:\n')
+console.log('\nword2vec as CSV:\n')
 word2vec.forEach(([_, vec]) => {
     console.log(vec.join(','));
 });
 
-console.log('Put data into the form to visualize:');
-console.log('http://cs.stanford.edu/people/karpathy/tsnejs/csvdemo.html');
+console.log('\nPut data into the form to visualize:');
+console.log('- http://cs.stanford.edu/people/karpathy/tsnejs/csvdemo.html');
 
 
